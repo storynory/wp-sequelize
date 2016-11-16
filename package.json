@@ -4,7 +4,11 @@
   "description": "sequelize a WordPress database",
   "main": "dist/index.js",
   "scripts": {
-    "test": "babel-tap ./tests/**/*.js | tap-summary"
+    "test": "babel-tap ./tests/** --cov | tap-summary",
+    "build": "babel src --out-dir dist",
+    "build:watch": "babel -w src --out-dir dist",
+    "format": "eslint './src/**' --fix; exit 0",
+    "lint": "eslint ./src/**/*.js; exit 0"
   },
   "repository": {
     "type": "git",
@@ -20,11 +24,19 @@
     "url": "https://github.com/storynory/wp-sequelize/issues"
   },
   "homepage": "https://github.com/storynory/wp-sequelize#readme",
+  "peerDependencies": {
+    "sequelize": "^3.0.0"
+  },
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-preset-es2015": "^6.18.0",
     "babel-tap": "^5.0.0",
+    "eslint": "^3.10.1",
     "tap-summary": "^3.0.1",
     "tape": "^4.6.2"
+  },
+  "dependencies": {
+    "mysql": "^2.12.0",
+    "sequelize": "^3.25.0"
   }
 }
